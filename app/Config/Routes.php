@@ -31,6 +31,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+$routes->group('auth', function ($routes) {
+	$routes->get('login', 'Auth::login');
+	$routes->post('login', 'Auth::doLogin');
+    $routes->get('register', 'Auth::register');
+    $routes->post('register', 'Auth::doRegister');
+	$routes->get('logout', 'Auth::logout');
+	$routes->addRedirect('(:any)', '/');
+});
+
+$routes->get('/guide', 'Guide::index');
+$routes->get('/favorites', 'Favorites::index', ['filter' => 'authentication']);
 $routes->get('/', 'Home::index');
 
 /*

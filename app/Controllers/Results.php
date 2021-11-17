@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Results extends BaseController
 {
     public function index()
     {
         $data = [
-			'title' => "Laptop Guide | Home",
+			'title' => "Laptop Guide | Results",
 			'request' => $this->request,
 		];
 
-        return view('index', $data);
+        return view('results', $data);
     }
 }

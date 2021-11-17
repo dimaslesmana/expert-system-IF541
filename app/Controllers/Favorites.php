@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Favorites extends BaseController
 {
     public function index()
     {
         $data = [
-			'title' => "Laptop Guide | Home",
+			'title' => "Laptop Guide | Favorites",
 			'request' => $this->request,
 		];
 
-        return view('index', $data);
+        return view('favorites', $data);
     }
 }

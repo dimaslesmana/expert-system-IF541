@@ -108,7 +108,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $appTimezone = 'America/Chicago';
+    public $appTimezone = 'Asia/Jakarta';
 
     /**
      * --------------------------------------------------------------------------
@@ -162,7 +162,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $sessionCookieName = 'ci_session';
+    public $sessionCookieName = 'sigma4_session';
 
     /**
      * --------------------------------------------------------------------------
