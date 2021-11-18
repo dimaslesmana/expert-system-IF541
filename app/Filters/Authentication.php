@@ -11,7 +11,7 @@ class Authentication implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->get('logged_in')) {
-            return redirect()->to('/');
+            return redirect()->to('/auth/login');
         }
     }
 
