@@ -77,6 +77,7 @@ class Auth extends BaseController
 
         $sessionData = [
             'logged_in' => TRUE,
+            'user_id' => $user['id'],
             'full_name' => join(' ', [$user['first_name'], $user['last_name']]),
             'first_name' => $user['first_name'],
             'last_name' => $user['last_name'],

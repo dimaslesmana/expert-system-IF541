@@ -35,7 +35,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['url', 'text'];
+    protected $helpers = ['url', 'text', 'number'];
 
     /**
      * Constructor.
@@ -55,5 +55,13 @@ class BaseController extends Controller
 
         // Models
         $this->usersModel = new \App\Models\UsersModel();
+        $this->favoritesModel = new \App\Models\FavoritesModel();
+        $this->alternativeLaptopsModel = new \App\Models\AlternativeLaptopsModel();
+        $this->criteriasModel = new \App\Models\CriteriasModel();
+        $this->evaluationsModel = new \App\Models\EvaluationsModel();
+        $this->criteriaBusinessModel = new \App\Models\CriteriaBusinessModel();
+        $this->criteriaContentEditingModel = new \App\Models\CriteriaContentEditingModel();
+        $this->criteriaGamingModel = new \App\Models\CriteriaGamingModel();
+        $this->criteriaStudentModel = new \App\Models\CriteriaStudentModel();
     }
 }

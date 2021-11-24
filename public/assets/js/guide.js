@@ -30,6 +30,22 @@ selectedAll.forEach((selected) => {
   optionsList.forEach((o) => {
     o.addEventListener("click", () => {
       selected.innerHTML = o.querySelector("label").innerHTML;
+
+      const inputName = o.querySelector("input").name;
+      const inputValue = o.querySelector(`input[name="${inputName}"]`).value;
+
+      switch (inputName) {
+        case 'price':
+          document.querySelector(`input[name="price_submit"]`).value = inputValue;
+          break;
+        case 'brand':
+          document.querySelector(`input[name="brand_submit"]`).value = inputValue;
+          break;
+        case 'function':
+          document.querySelector(`input[name="function_submit"]`).value = inputValue;
+          break;
+      }
+
       optionsContainer.classList.remove("active");
     });
   });

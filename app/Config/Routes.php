@@ -41,6 +41,10 @@ $routes->group('auth', function ($routes) {
 });
 
 $routes->get('/guide', 'Guide::index');
+$routes->post('/guide', 'Guide::submit');
+$routes->get('/results', 'Results::index');
+$routes->post('/favorites/add', 'Favorites::add', ['filter' => 'authentication']);
+$routes->delete('/favorites/delete/(:num)', 'Favorites::delete/$1', ['filter' => 'authentication']);
 $routes->get('/favorites', 'Favorites::index', ['filter' => 'authentication']);
 $routes->get('/', 'Home::index');
 
