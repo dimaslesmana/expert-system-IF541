@@ -72,20 +72,30 @@ class Guide extends BaseController
 
         switch ($data['function_submit']) {
             case array_search($this->laptop_functions['business'], $this->laptop_functions):
-                $result['laptops'] = $this->calculate($this->criteriaBusinessModel->getAll(), array_search($this->laptop_functions['business'], $this->laptop_functions));
+                $temp = $this->calculate($this->criteriaBusinessModel->getAll(), array_search($this->laptop_functions['business'], $this->laptop_functions));
+                $result['scores'] = $temp['scores'];
+                $result['laptops'] = $temp['laptops'];
                 break;
             case array_search($this->laptop_functions['content'], $this->laptop_functions):
-                $result['laptops'] = $this->calculate($this->criteriaContentEditingModel->getAll(), array_search($this->laptop_functions['content'], $this->laptop_functions));
+                $temp = $this->calculate($this->criteriaContentEditingModel->getAll(), array_search($this->laptop_functions['content'], $this->laptop_functions));
+                $result['scores'] = $temp['scores'];
+                $result['laptops'] = $temp['laptops'];
                 break;
             case array_search($this->laptop_functions['gaming'], $this->laptop_functions):
-                $result['laptops'] = $this->calculate($this->criteriaGamingModel->getAll(), array_search($this->laptop_functions['gaming'], $this->laptop_functions));
+                $temp = $this->calculate($this->criteriaGamingModel->getAll(), array_search($this->laptop_functions['gaming'], $this->laptop_functions));
+                $result['scores'] = $temp['scores'];
+                $result['laptops'] = $temp['laptops'];
                 break;
             case array_search($this->laptop_functions['student'], $this->laptop_functions):
-                $result['laptops'] = $this->calculate($this->criteriaStudentModel->getAll(), array_search($this->laptop_functions['student'], $this->laptop_functions));
+                $temp = $this->calculate($this->criteriaStudentModel->getAll(), array_search($this->laptop_functions['student'], $this->laptop_functions));
+                $result['scores'] = $temp['scores'];
+                $result['laptops'] = $temp['laptops'];
                 break;
         }
 
-        $laptops = $this->alternativeLaptopsModel->getLaptopsByModel($result['laptops']);
+        foreach ($result['laptops'] as $laptop) {
+            $laptops[] = $this->alternativeLaptopsModel->getLaptopByModel($laptop);
+        }
 
         $data['unfiltered_laptops'] = $laptops;
         $data['filtered_laptops'] = array_filter($laptops, function ($laptop) use ($data) {
@@ -110,7 +120,8 @@ class Guide extends BaseController
 
     private function calculate($criteria, $laptopFunction)
     {
-        $result = [];
+        $result['scores'] = [];
+        $result['laptops'] = [];
 
         // Mengambil nilai data kriteria
         $jumlah_kriteria = 0;
@@ -124,6 +135,7 @@ class Guide extends BaseController
 
         // Menghitung jumlah alternatif dan memasukkan nilai alternatif ke dalam array
         $jumlah_alternatif = 0;
+        // $alternatif_laptop = $this->alternativeLaptopsModel->getAll();
         $alternatif_laptop = $this->alternativeLaptopsModel->getLaptopsByFunction($laptopFunction);
 
         foreach ($alternatif_laptop as $item) {
@@ -184,7 +196,10 @@ class Guide extends BaseController
 
         for ($i = 0; $i < $jumlah_alternatif; $i++) {
             // number_format($vektor_V[$i], 3);
-            array_push($result, $alternatif[$i]);
+            // echo $alternatif[$i] . " = " . number_format($vektor_V[$i], 3);
+            // echo "<br>";
+            array_push($result['scores'], $vektor_V[$i]);
+            array_push($result['laptops'], $alternatif[$i]);
         }
 
         return $result;

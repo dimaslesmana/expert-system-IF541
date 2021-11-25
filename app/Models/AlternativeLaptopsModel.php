@@ -71,6 +71,24 @@ class AlternativeLaptopsModel extends Model
         )->whereIn('alternative_laptops.model', $laptop_models)->findAll();
     }
 
+    public function getLaptopByModel($laptop_model)
+    {
+        return $this->select(
+            "
+            brand AS brand,
+            CONCAT(alternative_laptops.brand , ' ', alternative_laptops.model) AS laptop_name,
+            alternative_laptops.cpu_model AS cpu,
+            CONCAT(alternative_laptops.ram_size, '', 'GB', ' ', alternative_laptops.ram_type) AS ram,
+            CONCAT(alternative_laptops.gpu_brand, ' ', alternative_laptops.gpu_model, ' ', alternative_laptops.gpu_vram_size, 'MB') AS gpu,
+            CONCAT(alternative_laptops.storage_size, 'GB', ' ', alternative_laptops.storage_type) AS storage,
+            CONCAT(alternative_laptops.refresh_rate, 'Hz') AS refresh_rate,
+            CONCAT(alternative_laptops.weight, ' kg') AS weight,
+            alternative_laptops.price AS price,
+            alternative_laptops.image AS image
+            "
+        )->where('alternative_laptops.model', $laptop_model)->first();
+    }
+
     public function getLaptopBrands()
     {
         /**
