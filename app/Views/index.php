@@ -18,7 +18,7 @@
             <h1 class="home-title-2"><b>Laptop</b></h1>
 
             <div class="home-desc">
-                <p>Pemilihan dilakukan dengan mengisi beberapa kategori yaitu Harga, Merk, Jenis, dan Fungsi kemudian aplikasi akan menampilkan jenis-jenis laptop yang cocok untuk digunakan sesuai kategori yang telah diisi.</p>
+                <p>Pemilihan dilakukan dengan mengisi beberapa kategori yaitu Harga, Brand, dan Fungsi. Kemudian aplikasi akan menampilkan jenis-jenis laptop yang cocok untuk digunakan sesuai kategori yang telah diisi.</p>
             </div>
             <div class="home-button mt-5">
                 <a href="/guide">
