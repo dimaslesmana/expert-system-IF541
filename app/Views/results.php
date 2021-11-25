@@ -10,8 +10,8 @@
                 <h4>Results - Filtered</h4>
             </div>
             <?php if (session()->getFlashdata('filtered_laptops')) : ?>
+                <?php $index = 0; ?>
                 <?php foreach (session()->getFlashdata('filtered_laptops') as $i => $laptop) : ?>
-                    <?php $index = 0; ?>
                     <div class="card mb-3 rounded">
                         <div class="row g-0">
                             <div class="col-md-4">
