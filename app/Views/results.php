@@ -42,7 +42,7 @@
                     <?php $index++; ?>
                 <?php endforeach; ?>
             <?php else : ?>
-                <h1 class="text-center">No Data!</h1>
+                <h1 class="text-center">Tidak ada laptop dengan kriteria yang sesuai!</h1>
                 <a class="text-center" href="/guide">
                     <h4>Go to Guide</h4>
                 </a>
@@ -84,7 +84,7 @@
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
-                <h1 class="text-center">No Data!</h1>
+                <h1 class="text-center">Tidak ada laptop dengan kriteria yang sesuai!</h1>
                 <a class="text-center" href="/guide">
                     <h4>Go to Guide</h4>
                 </a>
