@@ -11,6 +11,7 @@
             </div>
             <?php if (session()->getFlashdata('filtered_laptops')) : ?>
                 <?php foreach (session()->getFlashdata('filtered_laptops') as $i => $laptop) : ?>
+                    <?php $index = 0; ?>
                     <div class="card mb-3 rounded">
                         <div class="row g-0">
                             <div class="col-md-4">
@@ -20,7 +21,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $laptop['laptop_name']; ?></h5>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Alternatif ke-<?= $i + 1; ?></strong></li>
+                                        <li class="list-group-item"><strong>Ranking ke-<?= $index + 1; ?></strong></li>
                                         <li class="list-group-item">CPU: <?= $laptop['cpu']; ?></li>
                                         <li class="list-group-item">RAM: <?= $laptop['ram']; ?></li>
                                         <li class="list-group-item">GPU: <?= $laptop['gpu']; ?></li>
@@ -38,6 +39,7 @@
                             <button type="submit" class="btn btn-submit"><i class="fas fa-star"></i></button>
                         </form>
                     </div>
+                    <?php $index++; ?>
                 <?php endforeach; ?>
             <?php else : ?>
                 <h1 class="text-center">No Data!</h1>
@@ -62,7 +64,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $laptop['laptop_name']; ?></h5>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><strong>Alternatif ke-<?= $i + 1; ?></strong></li>
+                                        <li class="list-group-item"><strong>Ranking ke-<?= $i + 1; ?></strong></li>
                                         <li class="list-group-item">CPU: <?= $laptop['cpu']; ?></li>
                                         <li class="list-group-item">RAM: <?= $laptop['ram']; ?></li>
                                         <li class="list-group-item">GPU: <?= $laptop['gpu']; ?></li>
