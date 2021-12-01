@@ -51,7 +51,7 @@
         <br><br><br><br><br>
         <div class="row">
             <div class="results-title mb-5">
-                <h4>Results - Unfiltered</h4>
+                <h4>Rekomendasi Lainnya</h4>
             </div>
             <?php if (session()->getFlashdata('unfiltered_laptops')) : ?>
                 <?php foreach (session()->getFlashdata('unfiltered_laptops') as $i => $laptop) : ?>
