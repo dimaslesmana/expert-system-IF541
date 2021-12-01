@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="results-title mb-5">
-                <h4>Results - Filtered</h4>
+                <h4>Results</h4>
             </div>
             <?php if (session()->getFlashdata('filtered_laptops')) : ?>
                 <?php $index = 0; ?>
