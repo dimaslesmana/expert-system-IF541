@@ -18,10 +18,12 @@ to your `app` folder. The affected files can be copied or merged from
 ## Setup
 
 - Make sure you have XAMPP installed on your system.
-- Clone this repository or Download ZIP this project
+- Add PHP to environment variables [(Add XAMPP PHP to Environment Variables in Windows 10)](https://dinocajic.medium.com/add-xampp-php-to-environment-variables-in-windows-10-af20a765b0ce).
+- Make sure you have composer installed on your system [(Video Tutorial)](https://youtu.be/hehfb2oz8xI) - [Composer website](https://getcomposer.org/).
+- Clone this repository or Download ZIP this project.
 - Rename `.env.example` to `.env` and tailor for your app, specifically the baseURL
 and any database settings.
-- Add PHP to environment variables [(Add XAMPP PHP to Environment Variables in Windows 10)](https://dinocajic.medium.com/add-xampp-php-to-environment-variables-in-windows-10-af20a765b0ce).
+- Run the `composer update` command inside the project root directory.
 - Start XAMPP Apache and MySQL services.
 - Import `.sql` file to MySQL database.
 - Serve project using this command `php spark serve`.
